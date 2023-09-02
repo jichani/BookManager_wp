@@ -38,7 +38,7 @@ namespace BookManager_wp
                 string booksOutput = File.ReadAllText("./Books.xml");
                 XElement bx = XElement.Parse(booksOutput);
                 Books.Clear();
-                // foreach 루프 방식
+                // foreach 루프 방식. '명시성과 가독성'
                 foreach (var item in bx.Descendants("book"))
                 {
                     Book book = new Book();
@@ -60,7 +60,7 @@ namespace BookManager_wp
 
                 string usersOutput = File.ReadAllText("./Users.xml");
                 XElement ux = XElement.Parse(usersOutput);
-                // LINQ 방식
+                // LINQ 방식. 바로 대입하므로 clear가 필요없다. '간결함과 표현력'
                 Users = (from item in ux.Descendants("user")
                     select new User()
                     {
@@ -80,7 +80,43 @@ namespace BookManager_wp
         }
         public static void Save()
         {
+            string booksOutput = "";
+            booksOutput += "<books>\n";
+            foreach (var item in Books)
+            {
+                booksOutput += "<book>\n";
+                booksOutput += $"   <ISBN>{item.ISBN}</ISBN>\n";
+                booksOutput += $"   <도서명>{item.도서명}</도서명>\n";
+                booksOutput += $"   <분류>{item.분류}</분류>\n";
+                booksOutput += $"   <저자>{item.저자}</저자>\n";
+                booksOutput += $"   <설명>{item.설명}</설명>\n";
+                booksOutput += $"   <출판사>{item.출판사}</출판사>\n";
+                booksOutput += $"   <출판일>{item.출판일}</출판일>\n";
+                booksOutput += $"   <보유권수>{item.보유권수}</보유권수>\n";
+                booksOutput += $"   <등록일>{item.등록일}</등록일>\n";
+                booksOutput += $"   <대여일>{item.대여일}</대여일>\n";
+                booksOutput += $"   <대여상태>" + (item.대여상태 ? 1 : 0) + $"</대여상태>\n";
+                booksOutput += $"   <빌린ID>{item.빌린ID}</빌린ID>\n";
+                booksOutput += $"   <빌린이름>{item.빌린이름}</빌린이름>\n";
+                booksOutput += "</book>\n";
+            }
+            booksOutput += "</books>";
+            // 기존 내용 덮어쓰고 xml 파일에 새로운 내용을 넣는다.
+            File.WriteAllText("./Books.xml", booksOutput);
 
+            string usersOutput = "";
+            usersOutput += "<users>\n";
+            foreach (var item in Users)
+            {
+                usersOutput += "<user>\n";
+                usersOutput += $"    <ID>{item.ID}</ID>";
+                usersOutput += $"    <이름>{item.이름}</이름>";
+                usersOutput += $"    <연락처>{item.연락처}</연락처>";
+                usersOutput += $"    <등록일>{item.등록일}</등록일>";
+                usersOutput += "</user>\n";
+            }
+            usersOutput += "</users>\n";
+            File.WriteAllText("./Users.xml", usersOutput);
         }
     }
 }

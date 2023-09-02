@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bookManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookManage.Designer.cs">
+      <DependentUpon>bookManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="userManege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userManege.Designer.cs">
+      <DependentUpon>userManege.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="bookManage.resx">
+      <DependentUpon>bookManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookManager.resx">
       <DependentUpon>BookManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +82,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="userManege.resx">
+      <DependentUpon>userManege.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

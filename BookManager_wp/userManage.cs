@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BookManager_wp
 {
-    public partial class userManege : Form
+    public partial class userManage : Form
     {
-        public userManege()
+        public userManage()
         {
             InitializeComponent();
         }

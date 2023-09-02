@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookManager_wp
 {
-    internal class Book
+    public class Book
     {
         public string ISBN { get; set; }
         public string 도서명 { get; set; }
@@ -15,7 +15,7 @@ namespace BookManager_wp
         public string 설명 { get; set; }
         public string 출판사 { get; set; }
         public string 출판일 { get; set; }
-        public string 보유권수 { get; set; }
+        public int 보유권수 { get; set; }
         public DateTime 등록일 { get; set; }
 
         public string 빌린ID { get; set; }

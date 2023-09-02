@@ -61,10 +61,7 @@
             this.출판일DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.보유권수DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.등록일DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.빌린IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.빌린이름DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.대여상태DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.대여일DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -259,7 +256,7 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 377);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(899, 151);
+            this.groupBox2.Size = new System.Drawing.Size(1060, 151);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "도서 현황";
@@ -278,15 +275,12 @@
             this.출판일DataGridViewTextBoxColumn,
             this.보유권수DataGridViewTextBoxColumn,
             this.등록일DataGridViewTextBoxColumn,
-            this.빌린IDDataGridViewTextBoxColumn,
-            this.빌린이름DataGridViewTextBoxColumn,
-            this.대여상태DataGridViewCheckBoxColumn,
-            this.대여일DataGridViewTextBoxColumn});
+            this.대여상태DataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.bookBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(887, 131);
+            this.dataGridView1.Size = new System.Drawing.Size(1048, 131);
             this.dataGridView1.TabIndex = 0;
             // 
             // bookBindingSource
@@ -347,35 +341,17 @@
             this.등록일DataGridViewTextBoxColumn.HeaderText = "등록일";
             this.등록일DataGridViewTextBoxColumn.Name = "등록일DataGridViewTextBoxColumn";
             // 
-            // 빌린IDDataGridViewTextBoxColumn
-            // 
-            this.빌린IDDataGridViewTextBoxColumn.DataPropertyName = "빌린ID";
-            this.빌린IDDataGridViewTextBoxColumn.HeaderText = "빌린ID";
-            this.빌린IDDataGridViewTextBoxColumn.Name = "빌린IDDataGridViewTextBoxColumn";
-            // 
-            // 빌린이름DataGridViewTextBoxColumn
-            // 
-            this.빌린이름DataGridViewTextBoxColumn.DataPropertyName = "빌린이름";
-            this.빌린이름DataGridViewTextBoxColumn.HeaderText = "빌린이름";
-            this.빌린이름DataGridViewTextBoxColumn.Name = "빌린이름DataGridViewTextBoxColumn";
-            // 
             // 대여상태DataGridViewCheckBoxColumn
             // 
             this.대여상태DataGridViewCheckBoxColumn.DataPropertyName = "대여상태";
             this.대여상태DataGridViewCheckBoxColumn.HeaderText = "대여상태";
             this.대여상태DataGridViewCheckBoxColumn.Name = "대여상태DataGridViewCheckBoxColumn";
             // 
-            // 대여일DataGridViewTextBoxColumn
-            // 
-            this.대여일DataGridViewTextBoxColumn.DataPropertyName = "대여일";
-            this.대여일DataGridViewTextBoxColumn.HeaderText = "대여일";
-            this.대여일DataGridViewTextBoxColumn.Name = "대여일DataGridViewTextBoxColumn";
-            // 
             // bookManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 536);
+            this.ClientSize = new System.Drawing.Size(1084, 536);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "bookManage";
@@ -414,6 +390,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource bookBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 도서명DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 분류DataGridViewTextBoxColumn;
@@ -423,10 +400,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 출판일DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 보유권수DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 등록일DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 빌린IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 빌린이름DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn 대여상태DataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 대여일DataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bookBindingSource;
     }
 }

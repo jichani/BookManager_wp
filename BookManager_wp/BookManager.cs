@@ -67,11 +67,23 @@ namespace BookManager_wp
             {
                 dataGridView1.DataSource = DataManager.Books;
             }
+            label2.Text = "전체 도서 수 : " + DataManager.Books.Count;
+            label4.Text = "대출 중인 도서의 수 : " + DataManager.Books.Where(checkIsBorrowed).Count();
+            label5.Text = "연체 중인 도서의 수 : " + DataManager.Books.Where(
+                delegate (Book x)
+                {
+                    return x.대여상태 && x.대여일.AddDays(7) < DateTime.Now;
+                }
+                ).Count();
         }
 
         private void 사용자관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new userManage().ShowDialog();
+            label3.Text = "전체 회원 수 : " + DataManager.Users.Count;
+            dataGridView2.DataSource = null;
+            if (DataManager.Users.Count > 0)
+                dataGridView2.DataSource = DataManager.Users;
         }
     }
 }

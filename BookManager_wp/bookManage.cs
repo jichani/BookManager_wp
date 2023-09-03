@@ -109,6 +109,7 @@ namespace BookManager_wp
             }
             if (existBook)
             {
+                // 초기화를 안해주면 에러가 뜨면서 튕긴다.
                 dataGridView1.DataSource = null;
                 if (DataManager.Books.Count > 0)
                 {
@@ -120,6 +121,19 @@ namespace BookManager_wp
             {
                 MessageBox.Show("없는 책 입니다.");
             }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Book b = dataGridView1.CurrentRow.DataBoundItem as Book;
+            textBox1.Text = b.ISBN;
+            textBox2.Text = b.도서명;
+            textBox3.Text = b.분류;
+            textBox4.Text = b.저자;
+            textBox5.Text = b.설명;
+            textBox6.Text = b.출판사;
+            textBox7.Text = b.출판일;
+            textBox8.Text = b.보유권수.ToString();
         }
     }
 }

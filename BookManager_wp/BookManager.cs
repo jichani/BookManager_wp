@@ -62,6 +62,11 @@ namespace BookManager_wp
             // ShowDialog : 모달
             // 뒤에꺼 클릭 안 되고 코드가 여기서 멈춰있다.
             new bookManage().ShowDialog();
+            dataGridView1.DataSource = null;
+            if (DataManager.Books.Count > 0)
+            {
+                dataGridView1.DataSource = DataManager.Books;
+            }
         }
 
         private void 사용자관리ToolStripMenuItem_Click(object sender, EventArgs e)

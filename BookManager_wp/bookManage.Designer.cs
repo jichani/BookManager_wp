@@ -51,7 +51,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.도서명DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.분류DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +61,7 @@
             this.보유권수DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.등록일DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.대여상태DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -232,6 +232,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "삭제";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -241,6 +242,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "수정";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -250,6 +252,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "추가";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -282,10 +285,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1048, 131);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataSource = typeof(BookManager_wp.Book);
             // 
             // iSBNDataGridViewTextBoxColumn
             // 
@@ -346,6 +345,10 @@
             this.대여상태DataGridViewCheckBoxColumn.DataPropertyName = "대여상태";
             this.대여상태DataGridViewCheckBoxColumn.HeaderText = "대여상태";
             this.대여상태DataGridViewCheckBoxColumn.Name = "대여상태DataGridViewCheckBoxColumn";
+            // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataSource = typeof(BookManager_wp.Book);
             // 
             // bookManage
             // 

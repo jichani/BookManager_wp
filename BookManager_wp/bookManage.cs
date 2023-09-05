@@ -135,5 +135,10 @@ namespace BookManager_wp
             textBox7.Text = b.출판일;
             textBox8.Text = b.보유권수.ToString();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

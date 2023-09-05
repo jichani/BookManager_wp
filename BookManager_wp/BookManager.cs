@@ -25,6 +25,7 @@ namespace BookManager_wp
             label1.Text = DateTime.Now.ToString("yyyy년 MM월 dd일 HH시 mm분 ss초");
             label2.Text = "전체 도서 수 : " + DataManager.Books.Count;
             label3.Text = "전체 회원 수 : " + DataManager.Users.Count;
+            label9.Text = "대출 가능 도서의 수 : " + (DataManager.Books.Count - DataManager.Books.Where(checkIsBorrowed).Count());
 
             // 람다를 이용(책)
 
@@ -106,6 +107,7 @@ namespace BookManager_wp
                 dataGridView1.DataSource = DataManager.Books;
             }
             label2.Text = "전체 도서 수 : " + DataManager.Books.Count;
+            label9.Text = "대출 가능 도서의 수 : " + (DataManager.Books.Count - DataManager.Books.Where(checkIsBorrowed).Count());
             label4.Text = "대출 중인 도서의 수 : " + DataManager.Books.Where(checkIsBorrowed).Count();
             label5.Text = "연체 중인 도서의 수 : " + DataManager.Books.Where(
                 delegate (Book x)
@@ -151,6 +153,7 @@ namespace BookManager_wp
                         dataGridView1.DataSource = DataManager.Books;
 
                         label4.Text = "대출 중인 도서의 수 : " + DataManager.Books.Where(checkIsBorrowed).Count();
+                        label9.Text = "대출 가능 도서의 수 : " + (DataManager.Books.Count - DataManager.Books.Where(checkIsBorrowed).Count());
 
                         DataManager.Save();
 
@@ -212,7 +215,7 @@ namespace BookManager_wp
                         }
 
                         label4.Text = "대출 중인 도서의 수 : " + DataManager.Books.Where(checkIsBorrowed).Count();
-
+                        label9.Text = "대출 가능 도서의 수 : " + (DataManager.Books.Count - DataManager.Books.Where(checkIsBorrowed).Count());
                         label5.Text = "연체 중인 도서의 수 : " + DataManager.Books.Where(
                             delegate (Book x)
                             {

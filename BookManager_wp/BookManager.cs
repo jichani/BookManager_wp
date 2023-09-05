@@ -52,6 +52,24 @@ namespace BookManager_wp
             DataGridViewCellEventHandler dCellClick2 = dgClick;
             dataGridView2.CellClick += dCellClick2;
 
+            // LogFolder\bookRentalLog.txt 파일이 있는지 확인합니다.
+            if (File.Exists(@"LogFolder\bookRentalLog.txt"))
+            {
+                using (StreamReader sr = new StreamReader(@"LogFolder\bookRentalLog.txt"))
+                {
+                    string line;
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(line);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("로그 파일이 존재하지 않습니다.");
+            }
+
         }
 
         private void dgClick(object sender, DataGridViewCellEventArgs e)
@@ -159,6 +177,7 @@ namespace BookManager_wp
                 try
                 {
                     Book b = DataManager.Books.Single(x => x.ISBN == textBox1.Text);
+                    User u = DataManager.Users.Single(x => x.ID == textBox3.Text);
                     if (b.대여상태)
                     {
                         // 빌린 사람 없다는 뜻
@@ -173,13 +192,25 @@ namespace BookManager_wp
                         TimeSpan timeDiff = DateTime.Now - oldDay;
 
                         DataManager.Save();
+
                         dataGridView1.DataSource = null;
                         dataGridView1.DataSource = DataManager.Books;
 
                         if (timeDiff.Days > 7)
+                        {
                             MessageBox.Show(b.도서명 + " 연체 반납");
+
+                            string logMessage = $"{b.도서명} 책을 {u.이름}님이 연체 반납함";
+                            WriteLog(logMessage);
+                        }
                         else
+                        {
                             MessageBox.Show(b.도서명 + " 정상 반납");
+
+                            string logMessage = $"{b.도서명} 책을 {u.이름}님이 반납함";
+                            WriteLog(logMessage);
+                        }
+
                         label4.Text = "대출 중인 도서의 수 : " + DataManager.Books.Where(checkIsBorrowed).Count();
 
                         label5.Text = "연체 중인 도서의 수 : " + DataManager.Books.Where(
@@ -196,7 +227,7 @@ namespace BookManager_wp
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("존재하지 않는 책입니다.");
+                    MessageBox.Show("사용자 ID를 체크해주세요.");
                 }
             }
         }

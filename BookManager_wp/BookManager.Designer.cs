@@ -59,17 +59,16 @@
             this.연락처DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.등록일DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.도서명DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.분류DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.저자DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.출판사DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.보유권수DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.빌린IDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.빌린이름DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.대여상태DataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.대여일DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -277,7 +276,6 @@
             this.분류DataGridViewTextBoxColumn,
             this.저자DataGridViewTextBoxColumn,
             this.출판사DataGridViewTextBoxColumn,
-            this.보유권수DataGridViewTextBoxColumn,
             this.빌린IDDataGridViewTextBoxColumn,
             this.빌린이름DataGridViewTextBoxColumn,
             this.대여상태DataGridViewCheckBoxColumn,
@@ -364,6 +362,10 @@
             // 
             this.userBindingSource.DataSource = typeof(BookManager_wp.User);
             // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataSource = typeof(BookManager_wp.Book);
+            // 
             // iSBNDataGridViewTextBoxColumn
             // 
             this.iSBNDataGridViewTextBoxColumn.DataPropertyName = "ISBN";
@@ -394,12 +396,6 @@
             this.출판사DataGridViewTextBoxColumn.HeaderText = "출판사";
             this.출판사DataGridViewTextBoxColumn.Name = "출판사DataGridViewTextBoxColumn";
             // 
-            // 보유권수DataGridViewTextBoxColumn
-            // 
-            this.보유권수DataGridViewTextBoxColumn.DataPropertyName = "보유권수";
-            this.보유권수DataGridViewTextBoxColumn.HeaderText = "보유권수";
-            this.보유권수DataGridViewTextBoxColumn.Name = "보유권수DataGridViewTextBoxColumn";
-            // 
             // 빌린IDDataGridViewTextBoxColumn
             // 
             this.빌린IDDataGridViewTextBoxColumn.DataPropertyName = "빌린ID";
@@ -423,10 +419,6 @@
             this.대여일DataGridViewTextBoxColumn.DataPropertyName = "대여일";
             this.대여일DataGridViewTextBoxColumn.HeaderText = "대여일";
             this.대여일DataGridViewTextBoxColumn.Name = "대여일DataGridViewTextBoxColumn";
-            // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataSource = typeof(BookManager_wp.Book);
             // 
             // BookManager
             // 
@@ -486,16 +478,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 도서명DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 분류DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 저자DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 출판사DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 보유권수DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 빌린IDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 빌린이름DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn 대여상태DataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 대여일DataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn 이름DataGridViewTextBoxColumn;
@@ -504,6 +486,15 @@
         private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 도서명DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 분류DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 저자DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 출판사DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 빌린IDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 빌린이름DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn 대여상태DataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 대여일DataGridViewTextBoxColumn;
     }
 }
 

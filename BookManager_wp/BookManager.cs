@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace BookManager_wp
 {
@@ -133,7 +135,11 @@ namespace BookManager_wp
                         label4.Text = "대출 중인 도서의 수 : " + DataManager.Books.Where(checkIsBorrowed).Count();
 
                         DataManager.Save();
-                        MessageBox.Show($"{b.도서명} 책이 {u.이름}님에게 대여됨 ");
+
+                        string logMessage = $"{b.도서명} 책이 {u.이름}님에게 대여됨";
+
+                        MessageBox.Show(logMessage);
+                        WriteLog(logMessage);
                     }
                 }
                 catch (Exception)
@@ -192,6 +198,36 @@ namespace BookManager_wp
                 {
                     MessageBox.Show("존재하지 않는 책입니다.");
                 }
+            }
+        }
+
+        private void WriteLog(string contents)
+        {
+            string log = $"[{DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss.fff")}]";
+            log += contents;
+            DataManager.printLog(log);
+            listBox1.Items.Insert(0, log); // 새로운 내용이 맨 위로 올라온다.
+            // listBox1.Items.Add(0, log); // 새로운 내용이 맨 밑으로 간다.
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // LogFolder\bookRentalLog.txt 파일이 있는지 확인합니다.
+                if (File.Exists(@"LogFolder\bookRentalLog.txt"))
+                {
+                    // 파일이 존재하면, 시스템의 기본 텍스트 에디터로 해당 파일을 엽니다.
+                    System.Diagnostics.Process.Start(@"LogFolder\bookRentalLog.txt");
+                }
+                else
+                {
+                    MessageBox.Show("로그 파일이 존재하지 않습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"파일을 여는 도중 오류가 발생했습니다: {ex.Message}");
             }
         }
     }

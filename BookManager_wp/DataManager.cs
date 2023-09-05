@@ -13,6 +13,24 @@ namespace BookManager_wp
 {
     public class DataManager
     {
+        // 로그 작성 부분 1.
+        // ParkingCarManager.exe랑 같은 경로에 LogFolder라는 이름의 폴더가 없다면..
+        public static void printLog(string contents)
+        {
+            DirectoryInfo di = new DirectoryInfo("LogFolder");
+            if (di.Exists == false)
+            {
+                // 새로 만든다.
+                di.Create();
+            }
+            // @"LogFolder\ParkingHistory.txt" = "LogFolder\\ParkingHistory.txt" @를 사용하는 이유
+            // true는 append 옵션을 true. 새로운 텍스트가 나오면 덮어쓰지 않고 뒤에다가 새로 이어붙인다.
+            using (StreamWriter w = new StreamWriter(@"LogFolder\bookRentalLog.txt", true))
+            {
+                w.WriteLine(contents);
+            };
+        }
+
         // 클래스 변수. 인스턴스 변수가 아니므로 이 list는 공유된다.
         public static List<Book> Books = new List<Book>();
         public static List<User> Users = new List<User>();
